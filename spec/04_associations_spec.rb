@@ -51,9 +51,13 @@ describe "Associations" do
       end
 
       it 'knows about its cats' do
+        Cat.all.each{|cat| puts "Name << #{cat.name}"}
+
         @owner.buy_cat("Crookshanks")
         @owner.buy_cat("Whiskers")
         @owner.buy_cat("Garfield")
+
+        # Cat.all.each{|cat| puts "Name >> #{cat.name}"}
 
         expect(@owner.cats[0].name).to eq("Crookshanks")
         expect(@owner.cats[1].name).to eq("Whiskers")
@@ -80,7 +84,7 @@ describe "Associations" do
         @owner.buy_dog("Snuffles")
         @owner.buy_dog("Fido")
         @owner.buy_dog("Rover")
-
+        
         expect(@owner.dogs[0].name).to eq("Snuffles")
         expect(@owner.dogs[1].name).to eq("Fido")
         expect(@owner.dogs[2].name).to eq("Rover")
